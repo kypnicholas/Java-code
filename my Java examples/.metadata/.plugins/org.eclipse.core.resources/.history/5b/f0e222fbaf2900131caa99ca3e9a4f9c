@@ -1,0 +1,118 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.lang.*;
+import java.util.*;
+
+import javax.swing.*;
+
+
+public class mediaPlayer {
+	
+	public static class mySwing extends JFrame implements ActionListener
+	{
+		JFrame frame = new JFrame("Demo");
+		JPanel myPanel, trackControls;
+		JButton key1, playTrack, previousTrack, nextTrack;
+		JLabel contentsLabel, navigationsLabel;
+		JMenuBar menuBar;
+		JMenuItem fileExitMenuItem;
+		Container contentPane;
+		
+		
+		public mySwing()
+		{
+			/// Contents and navigation panel
+			myPanel = new JPanel(new GridBagLayout());
+			GridBagConstraints left = new GridBagConstraints();
+			left.anchor = GridBagConstraints.EAST;
+	        GridBagConstraints right = new GridBagConstraints();
+	        right.weightx = 2.0;
+	        right.fill = GridBagConstraints.HORIZONTAL;
+	        right.gridwidth = GridBagConstraints.REMAINDER;
+	        
+	        /// Track controls panel
+	        trackControls = new JPanel (new FlowLayout());
+	        playTrack = new JButton("Play");
+			previousTrack = new JButton("Previous");
+			nextTrack = new JButton("Next");
+			
+	        /// random key - test
+			key1 = new JButton("OK");
+			key1.addActionListener(this);
+			
+			/// Menu bar	
+			menuBar = new JMenuBar();
+			menuBar.setOpaque(true);
+			menuBar.setPreferredSize(new Dimension(1500, 20));
+			JMenu fileMenu = new JMenu("File");
+			JMenu helpMenu = new JMenu("Help");
+			
+			fileExitMenuItem = new JMenuItem("Exit");
+			fileExitMenuItem.addActionListener(this); 			
+				
+			
+			/// Contents section
+			contentsLabel = new JLabel();
+			contentsLabel.setOpaque(true);
+			contentsLabel.setBackground(new Color(248, 213, 131));
+			contentsLabel.setPreferredSize(new Dimension(1200, 800));
+			
+			
+			/// Navigation section
+			navigationsLabel = new JLabel();
+			navigationsLabel.setOpaque(true);
+			navigationsLabel.setBackground(new Color(154, 165, 127));
+			navigationsLabel.setPreferredSize(new Dimension(300, 800));
+			
+			/// Page layout
+			contentPane = getContentPane();
+			contentPane.setLayout(new FlowLayout());
+			contentPane.add(menuBar, BorderLayout.LINE_START);
+			
+			contentPane.add(contentsLabel, left);
+			contentPane.add(navigationsLabel, right);
+			
+			this.add(trackControls);
+			menuBar.add(fileMenu);
+			menuBar.add(helpMenu);
+			fileMenu.add(fileExitMenuItem);
+			this.add(menuBar);			
+			myPanel.add(key1);
+			myPanel.add(contentsLabel);
+			myPanel.add(navigationsLabel);
+			this.add(myPanel);
+			
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent event) {
+			if(event.getSource()==key1)
+			{
+				contentsLabel.setText("HI!");
+				System.out.println("Response: ");
+			}	
+			
+			// Menu >> Exit system
+			if(event.getSource()==fileExitMenuItem)
+			{
+				System.exit(0);
+			}	
+			
+			
+		}
+		
+	}
+	public static void main(String[] args) {
+		
+		JFrame frame = new mySwing();
+		frame.setTitle("Juke Box");
+		//frame.setSize(1200,800);
+		frame.setExtendedState(Frame.MAXIMIZED_BOTH); 
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+	}
+	
+	
+	
+}

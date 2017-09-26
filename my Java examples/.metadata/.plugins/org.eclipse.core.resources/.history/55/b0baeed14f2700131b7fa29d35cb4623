@@ -1,0 +1,40 @@
+import java.util.*;
+
+
+public class battleship {
+
+	public static void main(String[] args)
+	{
+			board();
+			setShips();
+	}
+	
+	
+	public static void board() 
+	{
+		char[][]boardArray = new char[10][10];
+		for (int x = 0; x < 10; x++) 
+		{      	      
+			for (int y = 0; y < 10; y++) 
+			{        
+				System.out.print("| ");      
+			}      
+			System.out.println("|");    
+		}    
+
+	}
+	
+	public static void setShips() {
+		Scanner in = new Scanner (System.in);
+		System.out.println("Please enter your ship coordinates");
+		System.out.println("----------------------------------");
+		System.out.println("Coordinates for aircraft: ");
+		System.out.println("Enter a row (1 to 10) for x coordinate: ");
+		int row = in.nextInt();
+		System.out.println("Enter a column (1 to 10) for y coordinate: ");
+		int column = in.nextInt();
+
+	
+	}
+
+}

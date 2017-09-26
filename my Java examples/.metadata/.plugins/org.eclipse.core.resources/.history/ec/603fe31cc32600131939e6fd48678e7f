@@ -1,0 +1,74 @@
+import java.util.*;
+
+
+public class paintShop {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner (System.in);
+		System.out.println("Please enter the room dimensions");
+		System.out.println("--------------------------------");
+		System.out.println("Enter the Width of the room:");
+		double width = in.nextDouble();
+		System.out.println("Enter the Length of the room: ");
+		double length = in.nextDouble();
+		System.out.println("Enter the Height of the room:");
+		double height = in.nextDouble();
+		
+		double roomVol = width* length* height;
+		System.out.println("Volumetric Dimension of the room is: " + roomVol + " cubic meters.\n");
+		
+		
+		int cheapBuckets=0; 
+		int standardBuckets=0; 
+		int specialBuckets=0; 
+		
+		//double cheapPrice = roomVol*1.5;   
+		//double standardPrice = roomVol*2;
+		//double specialPrice = roomVol*4.5;
+	
+		double cheapLitr = roomVol/2.5;
+		System.out.println("You will need: " + cheapLitr + " litres of cheap paint");		
+		double standardLitr = roomVol/3.5;
+		System.out.println("You will need: " + standardLitr + " litres of standard paint");
+		double specialLitr = roomVol/4.5;
+		System.out.println("You will need: " + specialLitr + " litres of special paint\n");
+		
+
+		
+		
+		double cheapPortion = roomVol%10;
+		//System.out.println(cheapPortion);
+		for (int i=0; i< cheapPortion; i++)
+		{
+			cheapBuckets = cheapBuckets + 1;
+		}
+		System.out.println("You are going to need: " + cheapBuckets + " buckets of 10L cheap paint");
+		
+		double standardPortion = roomVol/5;
+		//System.out.println(standardPortion);
+		for (int i=0; i< standardPortion; i++)
+		{
+			standardBuckets = standardBuckets + 1;
+		}
+		System.out.println("You are going to need: " + standardBuckets + " buckets of 5L standard paint");
+
+		double specialPortion = roomVol/2;
+		//System.out.println(specialPortion);
+		for (int i=0; i< specialPortion; i++)
+		{
+			specialBuckets = specialBuckets + 1;
+		}
+		System.out.println("You are going to need: " + specialBuckets + " buckets of 2L special paint");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

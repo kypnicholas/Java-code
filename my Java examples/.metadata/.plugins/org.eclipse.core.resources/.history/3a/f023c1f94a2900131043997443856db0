@@ -1,0 +1,91 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.lang.*;
+import java.util.*;
+
+import javax.swing.*;
+
+
+public class mediaPlayer {
+	
+	public static class mySwing extends JFrame implements ActionListener
+	{
+		JFrame frame = new JFrame("Demo");
+		JPanel myPanel;
+		JButton key1;
+		JLabel contentsLabel;
+		JMenuBar menuBar;
+		Container contentPane;
+		JMenuItem fileExitMenuItem;
+		
+		
+		public mySwing()
+		{
+			myPanel = new JPanel(new BorderLayout());
+			
+			key1 = new JButton("OK");
+			key1.addActionListener(this);
+			
+			/// Menu bar	
+			menuBar = new JMenuBar();
+			menuBar.setOpaque(true);
+			menuBar.setPreferredSize(new Dimension(1200, 20));
+			JMenu fileMenu = new JMenu("File");
+			JMenu helpMenu = new JMenu("Help");
+			
+			fileExitMenuItem = new JMenuItem("Exit");
+			fileExitMenuItem.addActionListener(this); 			
+			
+			/// Contents section
+			contentsLabel = new JLabel();
+			contentsLabel.setOpaque(true);
+			contentsLabel.setBackground(new Color(248, 213, 131));
+			contentsLabel.setPreferredSize(new Dimension(800, 800));
+			
+			
+			/// Page layout
+			contentPane = getContentPane();
+			contentPane.setLayout(new FlowLayout());
+			contentPane.add(menuBar, BorderLayout.LINE_START);
+			
+			
+			menuBar.add(fileMenu);
+			fileMenu.add(fileExitMenuItem);
+			menuBar.add(helpMenu);
+			this.add(menuBar);			
+			myPanel.add(key1);
+			myPanel.add(contentsLabel);
+			this.add(myPanel);
+			
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent event) {
+			if(event.getSource()==key1)
+			{
+				contentsLabel.setText("HI!");
+				System.out.println("Response: ");
+			}	
+			
+			// Menu >> Exit system
+			if(event.getSource()==fileExitMenuItem)
+			{
+				System.exit(0);
+			}	
+			
+			
+		}
+		
+	}
+	public static void main(String[] args) {
+		
+		JFrame frame = new mySwing();
+		frame.setTitle("Juke Box");
+		frame.setSize(1200,800);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+	}
+	
+	
+}
