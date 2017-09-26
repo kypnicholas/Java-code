@@ -1,0 +1,15 @@
+boolean retval = false;
+  
+if(theValue.length() > 1)
+{
+  
+    /* This is a first attempt that seems a little restrictive, especially if the rules change to include other letters. Eventually postcodes will be validated against a service */
+  /* java.util.regex.Pattern p = java.util.regex.Pattern.compile("(GIR 0AA)|((([A-Z-[QVX]][0-9][0-9]?)|(([A-Z-[QVX]][A-Z-[IJZ]][0-9][0-9]?)|(([A-Z-[QVX]][0-9][A-HJKPSTUW])|([A-Z-[QVX]][A-Z-[IJZ]][0-9][ABEHMNPRVWXY])))) [0-9][A-Z-[CIKMOV]]{2})"); */
+  
+  
+    java.util.regex.Pattern p = java.util.regex.Pattern.compile("^[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][ABD-HJLNP-UW-Z]{2}$");
+	java.util.regex.Matcher m = p.matcher(theValue);
+  	retval = m.matches();
+}
+
+return retval;
