@@ -1,0 +1,4 @@
+127.0.0.1 - - [04/Oct/2017:14:52:47 +0100] "GET / HTTP/1.1" 404 1073
+0:0:0:0:0:0:0:1 - - [04/Oct/2017:14:52:49 +0100] "GET /simpleMessenger/ HTTP/1.1" 200 247
+0:0:0:0:0:0:0:1 - - [04/Oct/2017:14:52:53 +0100] "GET /simpleMessenger/webapi/myresource HTTP/1.1" 200 7
+0:0:0:0:0:0:0:1 - - [04/Oct/2017:14:53:01 +0100] "GET /simpleMessenger/webapi/messages/1 HTTP/1.1" 200 88

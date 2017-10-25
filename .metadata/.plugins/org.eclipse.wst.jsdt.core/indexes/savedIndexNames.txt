@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\nkypr\Documents\WORK\technologies\JAVA\J2EE\code\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+776625477.index
+2571130387.index
+2992195301.index
+341938065.index
+808301910.index
+2875806792.index
